@@ -1,0 +1,563 @@
+/* General Body and Header Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 70px; 
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    padding: 1em;
+}
+
+
+.logo {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    padding: 0;
+    margin: 1.5em;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.home-box, .contact-box, .login-box, .user-box, .logout-box {
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 0.5em 1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    
+}
+
+.greeting-text {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    z-index: 3;
+    align-items: center;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label,
+form input {
+    margin-bottom: 10px;
+}
+
+form button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #000000;
+}
+
+.logout-box {
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 0.5em 1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background-color: white;
+    color: #000000;
+    cursor: pointer;
+}
+
+.logout-box:hover {
+    background-color: #ff6347;
+    color: white;
+}
+
+/* Image Container Styles */
+.image-container {
+    width: 101%;
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    filter: blur(10px);
+    animation: zoomInFocus 3s ease-in-out forwards;
+}
+
+@keyframes zoomInFocus {
+    0% {
+        transform: translate(-50%, -50%) scale(1.2);
+        filter: blur(10px);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Overlay Text Styles */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1em;
+    z-index: 1;
+    animation: zoomInText 3s ease-in-out forwards;
+}
+
+.overlay-text h1 {
+    font-family: 'Zeyada', cursive;
+    font-size: 9em;
+    margin: 0;
+}
+
+.overlay-text p {
+    font-size: 1.5em;
+    color: rgba(0, 0, 0, 0.562);
+    margin-top: 0.5em;
+}
+
+/* Keyframes for Text Zoom Animation */
+@keyframes zoomInText {
+    0% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Search Box Styles */
+.search-box {
+    position: relative;
+    width: 200%;
+    max-width: 600px; 
+    margin-left: -57px; 
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 40px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ccc;
+    font-size: 20px;
+}
+
+.search-box i {
+    margin-right: 0.5em;
+    color: #ff6347;
+}
+
+/* .search-box input {
+    width: 800px;
+    border: none;
+    outline: none;
+    padding: 0.5em;
+    font-size: 1em;
+} */
+
+.search-box input::placeholder {
+    color: #888;
+}
+/* Popular Picks Section Styles */
+.popular-picks {
+    padding: 2em;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.popular-picks h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    animation: zoomIn 1s ease-in-out; 
+}
+
+.picks-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em; 
+    justify-content: center;
+}
+
+.pick-box {
+    display: flex;
+    width: 350px; 
+    height: 300px; 
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: zoomIn 1s ease-in-out; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.pick-box:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.pick-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+}
+
+.pick-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 1em;
+    text-align: left;
+    border-radius: 0 0 15px 15px;
+}
+
+.pick-text h3 {
+    font-size: 1.5em;
+    margin: 0;
+    font-family: 'Zeyada', cursive; 
+}
+
+.pick-text p {
+    font-size: 1em;
+    margin: 0.5em 0 0;
+}
+
+/* Zoom Animation */
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* Cuisine Tables Section Styles */
+.cuisine-tables {
+    padding: 2em;
+    background-color: #fff;
+}
+
+.cuisine-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.cuisine-section {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cuisine-section h3 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    animation: zoomIn 1s ease-in-out; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75em;
+    text-align: center; 
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+td {
+    background-color: #fff;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.stars {
+    font-size: 1.5em;
+    color: #f1c40f; 
+}
+
+.order-now {
+    background-color: #000; 
+    color: #fff; 
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.order-now:hover {
+    background-color: #333; 
+}
+/* Styles for contact section */
+footer#contact-section {
+    background-color: #f8f8f8;
+    padding: 40px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer#contact-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+footer#contact-section p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+
+/* Style for the modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 7% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; 
+    max-width: 800px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    top: 20px;
+}
+
+/* Style for the close button */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style for the modal table */
+.modal-content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.modal-content th, .modal-content td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-content th {
+    background-color: #f4f4f4;
+}
+
+.modal-content td:last-child {
+    padding-right: 20px; 
+}
+
+/* Style for order buttons */
+.order-item-btn {
+    padding: 10px 25px;
+    border: none;
+    background-color: #f0a500; 
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 100px;
+}
+
+.order-item-btn:hover {
+    background-color: #e59400; 
+}
+
+
+
+/* Payment Modal Styles */
+#paymentModal .modal-content {
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fefefe;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.payment-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.payment-row .label {
+    font-weight: bold;
+}
+
+.payment-row.total .value {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+#confirmPayment {
+    background-color: #e59400;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: center;
+}
+
+#confirmPayment:hover {
+    background-color: #e59400;
+}
+
+/* Menu Item Styles */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.menu-item button {
+    background-color: #007bff;
+    color: white}
+
+
+
+

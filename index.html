@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodiez - Food Ordering Site</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Foodiez</div>
+        <nav>
+            <ul>
+                <li>
+                    <a class="home-box" href="#home">
+                        Home <i class="fa-solid fa-house"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="contact-box" href="#" id="contact-button">
+                        Contact <i class="fa-solid fa-paper-plane"></i>
+                        
+                        
+                    </a>
+                </li>
+                <li>
+                    <a class="login-box" href="#" id="login-btn">
+                        Login <i class="fa-solid fa-right-to-bracket"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="image-container">
+        <img src="C:\Users\John Vishal\OneDrive\Desktop\d36d462db827833805497d9ea78a1343.jpg" alt="Background Image">
+        <div class="overlay-text">
+            <h1>Foodiez</h1>
+            <p>Good food is the foundation of genuine happiness...</p>
+            <div class="search-box">
+                <i class="fa fa-search" id="search-icon"></i>
+                <input type="text" placeholder="Search for your favorite hotel and enjoy...">
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- This section will show after login -->
+    <div id="greeting-modal" class="modal">
+        <div class="modal-content">
+            <p id="greeting-text"></p>
+        </div>
+    </div>
+
+    <section class="popular-picks">
+        <h2 class="animate__animated animate__zoomIn">Popular Picks</h2>
+        <div class="picks-container">
+            <div class="pick-box">
+                <img src="C:\Users\John Vishal\OneDrive\Desktop\mutton-biriyani-recipe.jpeg" alt="Biriyani">
+                <div class="pick-text">
+                    <h3>Biriyani</h3>
+                    <p>Rice with a royal touch! Don’t miss this spicy treat.</p>
+                </div>
+            </div>
+            <div class="pick-box">
+                <img src="C:\Users\John Vishal\OneDrive\Desktop\shutterstock_1435374326.jpg" alt="Meals">
+                <div class="pick-text">
+                    <h3>Meals</h3>
+                    <p>Everything you need in one plate. Bon appétit!</p>
+                </div>
+            </div>
+            <div class="pick-box">
+                <img src="C:\Users\John Vishal\OneDrive\Desktop\idli_dosa_food.avif" alt="Tiffin">
+                <div class="pick-text">
+                    <h3>Tiffin</h3>
+                    <p>Small, but packed with flavor. Perfect for a quick bite!</p>
+                </div>
+            </div>
+            <div class="pick-box">
+                <img src="C:\Users\John Vishal\OneDrive\Desktop\general-tso-chicken.webp" alt="Chinese">
+                <div class="pick-text">
+                    <h3>Chinese</h3>
+                    <p>Noodles and dumplings that will make you feel like you’re in Beijing.</p>
+                </div>
+            </div>
+            <div class="pick-box">
+                <img src="C:\Users\John Vishal\OneDrive\Desktop\210211140233-03-classic-italian-dishes.jpg" alt="Italian">
+                <div class="pick-text">
+                    <h3>Italian</h3>
+                    <p>From pasta to pizza, get a taste of Italy right here!</p>
+                </div>
+            </div>
+            <div class="pick-box">
+                <img src="C:\Users\John Vishal\OneDrive\Desktop\content6380.jpg" alt="Arabian">
+                <div class="pick-text">
+                    <h3>Arabian</h3>
+                    <p>Savor the spices of the Middle East. A feast for the senses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cuisine Tables Section -->
+    <section class="cuisine-tables">
+        <div class="cuisine-container">
+            <!-- Cuisine Table: Biriyani -->
+            <div id= "biriyani-table" class="cuisine-section">
+                <h3>Biriyani</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hotel Name</th>
+                            <th>Rating</th>
+                            <th>Location</th>
+                            <th>Order</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="royal-biriyani">
+                            <td>Royal Biriyani</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>City Center</td>
+                            <td><button class="order-now" data-modal="biriyani-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="spicy-biriyani">
+                            <td>Spicy Biriyani</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>North End</td>
+                            <td><button class="order-now" data-modal="biriyani-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="classic-biriyani">
+                            <td>Classic Biriyani</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>East End</td>
+                            <td><button class="order-now" data-modal="biriyani-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="flavoursome-biriyani">
+                            <td>Flavorsome Biriyani</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>South End</td>
+                            <td><button class="order-now" data-modal="biriyani-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="deluxe-biriyani">
+                            <td>Deluxe Biriyani</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>West End</td>
+                            <td><button class="order-now" data-modal="biriyani-menu">Order Now</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="biriyani-menu" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Biriyani Menu</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Chicken Biriyani</td>
+                                <td>₹250</td>
+                                <td><button class="order-item-btn" data-price="250">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Prawn Biriyani</td>
+                                <td>₹300</td>
+                                <td><button class="order-item-btn" data-price="300">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Veg Biriyani</td>
+                                <td>₹150</td>
+                                <td><button class="order-item-btn" data-price="150">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Egg Biriyani</td>
+                                <td>₹180</td>
+                                <td><button class="order-item-btn" data-price="180">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Paneer Biriyani</td>
+                                <td>₹220</td>
+                                <td><button class="order-item-btn" data-price="220">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Fish Biriyani</td>
+                                <td>₹300</td>
+                                <td><button class="order-item-btn" data-price="300">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Mutton Biriyani</td>
+                                <td>₹320</td>
+                                <td><button class="order-item-btn" data-price="320">Order Now</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cuisine Table: Meals -->
+            <div id = "meals-table" class="cuisine-section">
+                <h3>Meals</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hotel Name</th>
+                            <th>Rating</th>
+                            <th>Location</th>
+                            <th>Order</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="meal-mania">
+                            <td>Meal Mania</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>Downtown</td>
+                            <td><button class="order-now" data-modal="meals-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="comfort-meals">
+                            <td>Comfort Meals</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>West End</td>
+                            <td><button class="order-now" data-modal="meals-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="meals-delight">
+                            <td>Meals Delight</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>North Side</td>
+                            <td><button class="order-now" data-modal="meals-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="delicious-meals">
+                            <td>Delicious Meals</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>East Side</td>
+                            <td><button class="order-now" data-modal="meals-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="meals-&-more">
+                            <td>Meals & More</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>South Side</td>
+                            <td><button class="order-now" data-modal="meals-menu">Order Now</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="meals-menu" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Meals Menu</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Full Meals</td>
+                                <td>₹150</td>
+                                <td><button class="order-item-btn" data-price="150">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Half Meals</td>
+                                <td>₹100</td>
+                                <td><button class="order-item-btn" data-price="100">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Baby Meals</td>
+                                <td>₹75</td>
+                                <td><button class="order-item-btn" data-price="75">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Roti Combo Meals</td>
+                                <td>₹80</td>
+                                <td><button class="order-item-btn" data-price="80">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Special Meals</td>
+                                <td>₹110</td>
+                                <td><button class="order-item-btn" data-price="110">Order Now</button></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cuisine Table: Tiffin -->
+            <div id = "tiffin-table" class="cuisine-section">
+                <h3>Tiffin</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hotel Name</th>
+                            <th>Rating</th>
+                            <th>Location</th>
+                            <th>Order</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="tiffin-treats">
+                            <td>Tiffin Treats</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>City Center</td>
+                            <td><button class="order-now" data-modal="tiffin-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="snacls-galore">
+                            <td>Snacks Galore</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>North End</td>
+                            <td><button class="order-now" data-modal="tiffin-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="quick-tiffin">
+                            <td>Quick Tiffin</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>South End</td>
+                            <td><button class="order-now" data-modal="tiffin-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="tiffin-corner">
+                            <td>Tiffin Corner</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>East End</td>
+                            <td><button class="order-now" data-modal="tiffin-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="happy-tiffin">
+                            <td>Happy Tiffin</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>West End</td>
+                            <td><button class="order-now" data-modal="tiffin-menu">Order Now</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="tiffin-menu" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Tiffin Menu</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Plain Dosa</td>
+                                <td>₹50</td>
+                                <td><button class="order-item-btn" data-price="50">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Ghee Roast</td>
+                                <td>₹75</td>
+                                <td><button class="order-item-btn" data-price="75">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Idly (2)</td>
+                                <td>₹40</td>
+                                <td><button class="order-item-btn" data-price="40">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Pongal</td>
+                                <td>₹45</td>
+                                <td><button class="order-item-btn" data-price="45">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Raagi Uppuma</td>
+                                <td>₹65</td>
+                                <td><button class="order-item-btn" data-price="65">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Onion Dosa</td>
+                                <td>₹80</td>
+                                <td><button class="order-item-btn" data-price="80">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Podi Idly</td>
+                                <td>₹90</td>
+                                <td><button class="order-item-btn" data-price="90">Order Now</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cuisine Table: Chinese -->
+            <div id="chinese-table" class="cuisine-section">
+                <h3>Chinese</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hotel Name</th>
+                            <th>Rating</th>
+                            <th>Location</th>
+                            <th>Order</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="great-wall-bristo">
+                            <td>Great Wall Bistro</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>City Center</td>
+                            <td><button class="order-now" data-modal="chinese-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="china-town">
+                            <td>China Town</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>North Side</td>
+                            <td><button class="order-now" data-modal="chinese-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="dragon’s-delight">
+                            <td>Dragon’s Delight</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>East Side</td>
+                            <td><button class="order-now" data-modal="chinese-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="mandarin-palace">
+                            <td>Mandarin Palace</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>South Side</td>
+                            <td><button class="order-now" data-modal="chinese-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="wok-wonders">
+                            <td>Wok Wonders</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>West Side</td>
+                            <td><button class="order-now" data-modal="chinese-menu">Order Now</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="chinese-menu" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Chinese Menu</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Kung Pao Chicken</td>
+                                <td>₹120</td>
+                                <td><button class="order-item-btn" data-price="120">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Sweet Pork</td>
+                                <td>₹140</td>
+                                <td><button class="order-item-btn" data-price="140">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Fried Rice</td>
+                                <td>₹110</td>
+                                <td><button class="order-item-btn" data-price="110">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Spring Rolls</td>
+                                <td>₹90</td>
+                                <td><button class="order-item-btn" data-price="90">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Beef Chow Mein</td>
+                                <td>₹150</td>
+                                <td><button class="order-item-btn" data-price="150">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Sweet Corn Rice</td>
+                                <td>₹180</td>
+                                <td><button class="order-item-btn" data-price="180">Order Now</button></td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cuisine Table: Italian -->
+            <div id="italian-table" class="cuisine-section">
+                <h3>Italian</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hotel Name</th>
+                            <th>Rating</th>
+                            <th>Location</th>
+                            <th>Order</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="little-italy">
+                            <td>Little Italy</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>Central Area</td>
+                            <td><button class="order-now" data-modal="italian-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="pizza-palace">
+                            <td>Pizza Palace</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>East Side</td>
+                            <td><button class="order-now" data-modal="italian-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="spaghetti-house">
+                            <td>Spaghetti House</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>North Side</td>
+                            <td><button class="order-now" data-modal="italian-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="paste-point">
+                            <td>Pasta Point</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>South Side</td>
+                            <td><button class="order-now" data-modal="italian-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="italian-bistro">
+                            <td>Italian Bistro</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>West Side</td>
+                            <td><button class="order-now" data-modal="italian-menu">Order Now</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="italian-menu" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Italian Menu</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Margherita Pizza</td>
+                                <td>₹200</td>
+                                <td><button class="order-item-btn" data-price="200">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Spaghettin Carbonara</td>
+                                <td>₹250</td>
+                                <td><button class="order-item-btn" data-price="250">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Lasagna</td>
+                                <td>₹150</td>
+                                <td><button class="order-item-btn" data-price="150">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Fettuccine</td>
+                                <td>₹270</td>
+                                <td><button class="order-item-btn" data-price="270">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Bruschetta</td>
+                                <td>₹280</td>
+                                <td><button class="order-item-btn" data-price="280">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Tiramisu</td>
+                                <td>₹300</td>
+                                <td><button class="order-item-btn" data-price="300">Order Now</button></td>
+                            </tr>
+                            <tr>
+                                <td>Minestrone Soup</td>
+                                <td>₹320</td>
+                                <td><button class="order-item-btn" data-price="320">Order Now</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cuisine Table: Arabian -->
+            <div id="arabian-table" class="cuisine-section">
+                <h3>Arabian</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hotel Name</th>
+                            <th>Rating</th>
+                            <th>Location</th>
+                            <th>Order</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="desert-oasis">
+                            <td>Desert Oasis</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>City Center</td>
+                            <td><button class="order-now" data-modal="arabian-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="sands-of-time">
+                            <td>Sands of Time</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>North End</td>
+                            <td><button class="order-now" data-modal="arabian-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="arabian-nights">
+                            <td>Arabian Nights</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>South End</td>
+                            <td><button class="order-now" data-modal="arabian-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="shawarma-corner">
+                            <td>Shawarma Corner</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>East End</td>
+                            <td><button class="order-now" data-modal="arabian-menu">Order Now</button></td>
+                        </tr>
+                        <tr id="falafel-house">
+                            <td>Falafel House</td>
+                            <td><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
+                            <td>West End</td>
+                            <td><button class="order-now" data-modal="arabian-menu">Order Now</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <div id="arabian-menu" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Arabian Menu</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shawarma</td>
+                        <td>₹90</td>
+                        <td><button class="order-item-btn" data-price="90">Order Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>Falalfel</td>
+                        <td>₹120</td>
+                        <td><button class="order-item-btn" data-price="120">Order Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>Hummus</td>
+                        <td>₹110</td>
+                        <td><button class="order-item-btn" data-price="110">Order Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>Tabbouleh</td>
+                        <td>₹100</td>
+                        <td><button class="order-item-btn" data-price="180">Order Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>Kebab</td>
+                        <td>₹200</td>
+                        <td><button class="order-item-btn" data-price="200">Order Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>Baklava</td>
+                        <td>₹190</td>
+                        <td><button class="order-item-btn" data-price="190">Order Now</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closePayment">&times;</span>
+        <h2>Payment</h2>
+        <div class="payment-details">
+            <div class="payment-row">
+                <span class="label">Price:</span>
+                <span id="item-price" class="value"></span>
+            </div>
+            <div class="payment-row">
+                <span class="label">GST (18%):</span>
+                <span id="gst-amount" class="value"></span>
+            </div>
+            <hr>
+            <div class="payment-row total">
+                <span class="label">Total:</span>
+                <span id="total-price" class="value"></span>
+            </div>
+            <button id="confirmPayment">Confirm</button>
+        </div>
+    </div>
+</div>
+
+    <footer id="contact-section">
+        <h2>Want to reach us?</h2>
+        <p>Email: Foodiez@xyz.com</p>
+        <p>Contact Number: (123) 456-7890</p>
+        <p>Main Office Address: H-790, Ramoji Street, Chennai</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('contact-button').addEventListener('click', function(event) {
+                event.preventDefault();
+                document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+</html>
